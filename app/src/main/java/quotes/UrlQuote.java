@@ -2,24 +2,21 @@ package quotes;
 
 import com.google.gson.Gson;
 
-
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class RandomQuote {
+public class UrlQuote {
 
     private static final String JSON_URL = "https://codefellows.github.io/code-401-java-guide/curriculum/class-08/recentquotes.json";
+    private static final String localPath = "app/src/main/resources/Quote.txt";
 
     private List<Quote> quotes;
 
-    public RandomQuote() {
+    public UrlQuote() {
         quotes = fetchQuotes();
     }
 
@@ -29,7 +26,7 @@ public class RandomQuote {
         try {
             String jsonData = fetchDataFromURL(JSON_URL);
             Gson gson = new Gson();
-            Quote[] quoteArray = gson.fromJson(jsonData, Quote[].class); //
+            Quote[] quoteArray = gson.fromJson(jsonData, Quote[].class);
 
             for (Quote quote : quoteArray) {
                 quoteList.add(quote);
@@ -64,6 +61,4 @@ public class RandomQuote {
 
         return content.toString();
     }
-
-
 }

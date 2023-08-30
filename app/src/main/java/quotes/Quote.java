@@ -1,35 +1,27 @@
 package quotes;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-
 public class Quote {
 
     private String text;
     private String author;
 
-    public Quote(String quote, String author) {
-        this.text = quote;
+    public Quote(String text, String author) {
+        this.text = text;
         this.author = author;
     }
 
-    public String getQuote(){
-
+    public String getQuote() {
         return text;
     }
 
-    public String getAuthor(){
-
+    public String getAuthor() {
         return author;
     }
 
     @Override
     public String toString() {
         return "Quote{" +
-                "quote='" + text + '\n' +
+                "quote='" + text + '\'' +
                 ", author='" + author + '\'' +
                 '}';
     }
